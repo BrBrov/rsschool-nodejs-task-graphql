@@ -24,13 +24,13 @@ export const userType: GraphQLObjectType = new GraphQLObjectType({
         return [await context.posts.load(user.id)];
       },
     },
-    userSubscribed: {
+    userSubscribedTo: {
       type: new GraphQLList(userType),
       async resolve(subscribers: UserWithSubscribe, _, context: Loader) {
         return context.user.loadMany(subscribers.userSubscribedTo?.map((subscribe) => subscribe.authorId) || []);
       },
     },
-    subscribe: {
+    subscribedToUser: {
       type: new GraphQLList(userType),
       async resolve(subscribers: UserWithSubscribe, _, context: Loader) {
         return context.user.loadMany(subscribers.subscribedToUser?.map((subscribe) => subscribe.subscriberId) || []);
