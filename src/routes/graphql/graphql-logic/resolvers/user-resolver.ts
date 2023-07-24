@@ -35,7 +35,7 @@ export const userResolve = {
     });
     return '';
   },
-  updateUser: async ({ id, dto }: { id: UUID; dto: Partial<UserDTOCreator> }, context: Loader) => {
+  changeUser: async ({ id, dto }: { id: UUID; dto: Partial<UserDTOCreator> }, context: Loader) => {
     return await context.prisma.user.update({
       where: { id },
       data: dto,

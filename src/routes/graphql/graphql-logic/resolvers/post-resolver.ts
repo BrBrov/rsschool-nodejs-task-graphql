@@ -26,7 +26,7 @@ export const postResolve = {
 		});
 		return '';
 	},
-	updatePost: async ({ id, dto }: { id: UUID; dto: Partial<PostDTOCreator> }) => {
+	changePost: async ({ id, dto }: { id: UUID; dto: Partial<PostDTOCreator> }) => {
 		return await prisma.post.update({
 			where: {
 				id

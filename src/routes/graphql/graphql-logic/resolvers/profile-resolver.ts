@@ -26,7 +26,7 @@ export const profileResolve = {
 		});
 		return '';
 	},
-	updateProfile: async ({ id, dto }: { id: UUID; dto: Partial<ProfileDTOCreator> }) => {
+	changeProfile: async ({ id, dto }: { id: UUID; dto: Partial<ProfileDTOCreator> }) => {
 		return await prisma.profile.update({
 			where: {
 				id
