@@ -25,10 +25,10 @@ const plugin: FastifyPluginAsyncTypebox = async (fastify) => {
       const schema = new GraphQLSchema({ query, mutation });
       
       const ast = parse(req.body.query);
-      const validation = validate(schema, ast, [depthLimit(5)]);
+      const validationErrors = validate(schema, ast, [depthLimit(5)]);
       
-      if (validation.length) {
-        return { errors: validation };
+      if (validationErrors.length) {
+        return { errors: validationErrors };
       }
       
       const root = {
