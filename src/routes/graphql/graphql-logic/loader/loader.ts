@@ -2,7 +2,7 @@ import { MemberType, Post, PrismaClient, Profile, User } from '@prisma/client';
 import DataLoader from 'dataloader';
 
 export default class Loader {
-	private prisma: PrismaClient;
+	public prisma: PrismaClient;
 	public user: DataLoader<string, User>;
 	public profiles: DataLoader<string, Profile[]>;
 	public posts: DataLoader<string, Post[]>;
