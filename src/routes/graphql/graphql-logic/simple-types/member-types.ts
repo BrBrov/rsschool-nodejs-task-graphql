@@ -3,7 +3,7 @@ import { MemberTypeId } from '../../../member-types/schemas.js';
 import { profileType } from './profile-types.js';
 
 export const idOfMember: GraphQLEnumType = new GraphQLEnumType({
-  name: 'idOfMember',
+  name: 'MemberTypeId',
   values: {
     [MemberTypeId.BASIC]: {
       value: MemberTypeId.BASIC,
@@ -15,7 +15,7 @@ export const idOfMember: GraphQLEnumType = new GraphQLEnumType({
 });
 
 export const memberType: GraphQLObjectType = new GraphQLObjectType({
-  name: 'memberTypes',
+  name: 'MemberType',
   fields: () => ({
     id: { type: new GraphQLNonNull(idOfMember) },
     discount: { type: GraphQLFloat },

@@ -15,8 +15,8 @@ export const postResolve = {
 	posts: async () => {
 		return await prisma.post.findMany();
 	},
-	createPost: async ({ creator }: { creator: PostDTOCreator }) => {
-		return await prisma.post.create({ data: creator });
+	createPost: async ({ dto }: { dto: PostDTOCreator }) => {
+		return await prisma.post.create({ data: dto });
 	},
 	deletePost: async ({ id }: { id: UUID }) => {
 		await prisma.post.delete({
@@ -26,12 +26,12 @@ export const postResolve = {
 		});
 		return '';
 	},
-	updatePost: async ({ id, creator }: { id: UUID; creator: Partial<PostDTOCreator> }) => {
+	updatePost: async ({ id, dto }: { id: UUID; dto: Partial<PostDTOCreator> }) => {
 		return await prisma.post.update({
 			where: {
 				id
 			},
-			data: creator,
+			data: dto,
 		});
 	},
 };

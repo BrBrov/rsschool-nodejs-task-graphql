@@ -22,9 +22,9 @@ export const userResolve = {
     users.forEach((item) => context.user.prime(item.id, item));
     return users;
   },
-  createUser: async ({ creator }: { creator: UserDTOCreator }, context: Loader) => {
+  createUser: async ({ dto }: { dto: UserDTOCreator }, context: Loader) => {
     return await context.prisma.user.create({
-      data: creator,
+      data: dto,
     });
   },
   deleteUser: async ({ id }: { id: UUID }, context: Loader) => {
@@ -35,10 +35,10 @@ export const userResolve = {
     });
     return '';
   },
-  updateUser: async ({ id, creator }: { id: UUID; creator: Partial<UserDTOCreator> }, context: Loader) => {
+  updateUser: async ({ id, dto }: { id: UUID; dto: Partial<UserDTOCreator> }, context: Loader) => {
     return await context.prisma.user.update({
       where: { id },
-      data: creator,
+      data: dto,
     });
   },
 };

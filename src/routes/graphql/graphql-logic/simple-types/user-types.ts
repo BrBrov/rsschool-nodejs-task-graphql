@@ -7,7 +7,7 @@ import { postType } from './post-types.js';
 import UserWithSubscribe from './subscribers-types.js';
 
 export const userType: GraphQLObjectType = new GraphQLObjectType({
-  name: 'user',
+  name: 'User',
   fields: () => ({
     id: { type: new GraphQLNonNull(UUIDType) },
     name: { type: GraphQLString },

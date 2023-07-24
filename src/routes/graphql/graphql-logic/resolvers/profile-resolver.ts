@@ -15,8 +15,8 @@ export const profileResolve = {
 	profiles: async () => {
 		return await prisma.profile.findMany();
 	},
-	createProfile: async ({ creator }: { creator: ProfileDTOCreator }) => {
-		return await prisma.profile.create({ data: creator });
+	createProfile: async ({ dto }: { dto: ProfileDTOCreator }) => {
+		return await prisma.profile.create({ data: dto });
 	},
 	deleteProfile: async ({ id }: { id: UUID }) => {
 		await prisma.profile.delete({
@@ -26,12 +26,12 @@ export const profileResolve = {
 		});
 		return '';
 	},
-	updateProfile: async ({ id, creator }: { id: UUID; creator: Partial<ProfileDTOCreator> }) => {
+	updateProfile: async ({ id, dto }: { id: UUID; dto: Partial<ProfileDTOCreator> }) => {
 		return await prisma.profile.update({
 			where: {
 				id
 			},
-			data: creator,
+			data: dto,
 		});
 	},
 };

@@ -6,7 +6,7 @@ import { UUIDType } from './uuid.js';
 import Loader from '../loader/loader.js';
 
 export const profileType: GraphQLObjectType = new GraphQLObjectType({
-  name: 'profile',
+  name: 'Profile',
   fields: () => ({
     id: { type: new GraphQLNonNull(UUIDType) },
     isMale: { type: GraphQLBoolean },
